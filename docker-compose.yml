@@ -1,0 +1,22 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: invoiceiq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: invoiceiq
+      POSTGRES_USER: invoiceiq_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your .env file}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - invoiceiq_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U invoiceiq_user -d invoiceiq"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  invoiceiq_postgres_data:
