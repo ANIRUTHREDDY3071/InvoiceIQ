@@ -9,3 +9,4 @@ requests
 google-genai
 python-dotenv
 pypdf
+psycopg[binary]
