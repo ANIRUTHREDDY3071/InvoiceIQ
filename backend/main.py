@@ -38,6 +38,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "https://invoice-iq-beta.vercel.app",
+        "https://invoice-oh29y65nj-aniruthreddy3071s-projects.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
